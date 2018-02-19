@@ -1,29 +1,46 @@
-<div class="container">
-  <div style="text-align:center">
-    <h1>
-      UV Index Finder
-    </h1>
-  </div>
-  <br>
-  <br>
-  <div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="text-center">
-          <button class="btn btn-primary" (click)="findMe()">Show UV Index at my location</button>
-          <button class="btn btn-primary" (click)="refresh()">Refresh</button>
-          <br>
-          <br>
+<header>
+  <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Live UV Index</span>
+  </nav>
+</header>
 
-          <h5>
-            <a href="https://openweathermap.org/" target="_blank">Open Weather Map's</a>: {{uvIndexOpenWeatherMap}}
-          </h5>
-          <h5>
-            <a href="https://www.openuv.io/" target="_blank">Open UV's</a>: {{uvIndexOpenWeatherMap}}
-          </h5>
-        </div>
+<br>
+
+<div class="container">
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-header">
+        <a href="https://openweathermap.org/" target="_blank">Open Weather Map Data</a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Current Data</h5>
+        <p>Lat: {{uvIndexOpenWeatherMap?.lat}} </p>
+        <p>Long: {{uvIndexOpenWeatherMap?.lon}} </p>
+        <p>Date ISO: {{uvIndexOpenWeatherMap?.date_iso | date}} </p>
+        <p>UV Index Value: {{uvIndexOpenWeatherMap?.value}} </p>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-lg btn-primary" (click)="refresh()">Refresh</button>
       </div>
     </div>
+    <div class="card">
+      <div class="card-header">
+        <a href="https://www.openuv.io/" target="_blank">Open UV Data</a>
+      </div>      
+      <div class="card-body">
+        <h5 class="card-title">Current Data</h5>
+        <p>UV Time: {{uvIndexOpenUV?.result.uv_time | date:'longTime'}} </p>
+        <p>UV Max: {{uvIndexOpenUV?.result.uv_max}} </p>
+        <p>UV Max Time: {{uvIndexOpenUV?.result?.uv_max_time | date:'longTime'}} </p>
+        <p>Ozone: {{uvIndexOpenUV?.result.ozone}} </p>
+        <p>Ozone Time: {{uvIndexOpenUV?.result.ozone_time | date:'longTime'}} </p>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-lg btn-primary" (click)="refresh()">Refresh</button>
+      </div>
+    </div>
+  </div>
+  <div>
   </div>
   <br>
   <footer>
