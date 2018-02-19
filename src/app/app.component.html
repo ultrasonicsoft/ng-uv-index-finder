@@ -11,11 +11,15 @@
       <div class="col-md-12">
         <div class="text-center">
           <button class="btn btn-primary" (click)="findMe()">Show UV Index at my location</button>
+          <button class="btn btn-primary" (click)="refresh()">Refresh</button>
           <br>
           <br>
 
           <h5>
-            Current UV Undex: {{uvIndex}}
+            <a href="https://openweathermap.org/" target="_blank">Open Weather Map's</a>: {{uvIndexOpenWeatherMap}}
+          </h5>
+          <h5>
+            <a href="https://www.openuv.io/" target="_blank">Open UV's</a>: {{uvIndexOpenWeatherMap}}
           </h5>
         </div>
       </div>
